@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Audio Aura - Mood Music</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Plugin CSS -->
+    <link href="/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+
+    <!-- Custom styles for this template  -->
+
+    <link href="/css/sb-admin.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/bars.css">
+    <link rel="stylesheet" type="text/css" href="/css/spotifyembed.css">
+
+    <script type="text/javascript" src="./d3/d3.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
+    <script src="cloud.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="bars.css">
+
+  </head>
+
+  <body class="fixed-nav sticky-footer bg-dark" id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+      <a class="navbar-brand" href="#">A u d i o | A u r a</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+          <li class="nav-item active" data-toggle="tooltip" data-placement="right" title="Dashboard">
+            <a class="nav-link" href="#">
+              <i class="fa fa-fw fa-dashboard"></i>
+              <span class="nav-link-text">
+                Dashboard</span>
+            </a>
+          </li>
+            <ul class="sidenav-second-level collapse" id="collapseComponents">
+              <li>
+                <a href="static-nav.html">Static Navigation</a>
+              </li>
+              <li>
+                <a href="#">Custom Card Examples</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
+            <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
+              <i class="fa fa-fw fa-file"></i>
+              <span class="nav-link-text">
+                Pages</span>
+            </a>
+            <ul class="sidenav-second-level collapse" id="collapseExamplePages">
+              <li>
+                <a href="/">Home</a>
+              </li>
+              <li>
+                <a href="https://www.spotify.com/us/">Spotify</a>
+              </li>
+              <li>
+                <a href="/chart">Mood Graph</a>
+              </li>
+            </ul>
+          </li>
+        
+            <ul class="sidenav-second-level collapse" id="collapseMulti">
+              <li>
+                <a href="#">Second Level Item</a>
+              </li>
+              <li>
+                <a href="#">Second Level Item</a>
+              </li>
+              <li>
+                <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti2">Third Level</a>
+                <ul class="sidenav-third-level collapse" id="collapseMulti2">
+                  <li>
+                    <a href="#">Third Level Item</a>
+                  </li>
+                  <li>
+                    <a href="#">Third Level Item</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="navbar-nav sidenav-toggler">
+          <li class="nav-item">
+            <a class="nav-link text-center" id="sidenavToggler">
+              <i class="fa fa-fw fa-angle-left"></i>
+            </a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+     
+           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+            <a class="nav-link" href="https://accounts.spotify.com/en/authorize?response_type=code&client_id=aa57db780ac34c78aa98edc911ae4125&scope=user-read-private%20user-read-email&redirect_uri=https:%2F%2Fmahdia93.github.io%2FAudioAura%2Fviews%2Findex.html&state=z82x2WmOu32n5LQe">
+              <i class="fa fa-spotify"></i>
+              <span class="nav-link-text">
+                Spotify Login</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="content-wrapper">
+
+      <div class="container-fluid">
+
+        <!-- Breadcrumbs -->
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item active">Music for your ~~moo0oOod~~</li>
+        </ol>
+
+
+<div id="viz"></div>
+
+<script type="text/javascript">
+  
+var bardata = [15, 11, 7, 10, 8, 11, 5, 4, 5, 14];
+
+var max = bardata.reduce(function(a, b) {
+    return Math.max(a, b);
+});
+
+var blueH = ((bardata[0]/max)*300);
+var brownH = ((bardata[1]/max)*300);
+var greenH = ((bardata[2]/max)*300);
+var greyH = ((bardata[3]/max)*300);
+var orangeH = ((bardata[4]/max)*300);
+var pinkH = ((bardata[5]/max)*300);
+var purpleH = ((bardata[6]/max)*300);
+var redH = ((bardata[7]/max)*300);
+var whiteH = ((bardata[8]/max)*300);
+var yellowH = ((bardata[9]/max)*300);
+
+
+
+var height = 400, 
+    width = 600, 
+    barWidth = 50, 
+    barOffset = 5;
+
+d3.select('#viz')
+  .append('svg')
+    .attr('width', width)
+    .attr('height', height)
+    .style('background', '#F0F0F0')
+  // .append('rect')
+  //  .attr('x', 0)
+  //  .attr('y', 0)
+  //  .attr('width', 60)
+  //  .attr('height', 50)
+  //  .attr('style', 'fill: white')
+;
+
+d3.select('#viz svg')
+.append("text")
+        .attr("x", '160')             
+        .attr("y", '375')
+        .style("font-size", "30px") 
+        .style("font-weight", "strong")
+        .text("Color popularity");
+
+
+//red
+d3.select('#viz svg')
+  .append('g')
+    .attr('id', 'blueColumn')
+  .append('rect')
+    .attr('x', '25')
+    .attr('y', '25')
+    .attr('width', '40')
+    .attr('height', blueH)
+    .attr('fill', 'blue') 
+;
+
+d3.select('#viz svg')
+.append("text")
+        .attr("x", '30')             
+        .attr("y", '15')
+        .style("font-size", "16px") 
+        .text("Blue");
+
+//pink
+d3.select('#viz svg')
+  .append('g')
+    .attr('id', 'brownColumn')
+  .append('rect')
+    .attr('x', '75')
+    .attr('y', '25')
+    .attr('width', '40')
+    .attr('height', brownH)
+    .attr('fill', '#785631')
+;
+
+d3.select('#viz svg')
+.append("text")
+        .attr("x", '75')             
+        .attr("y", '15')
+        .style("font-size", "16px") 
+        .text("Brown");
+
+//orange
+
+d3.select('#viz svg')
+  .append('g')
+    .attr('id', 'greenColumn')
+  .append('rect')
+    .attr('x', '125')
+    .attr('y', '25')
+    .attr('width', '40')
+    .attr('height', greenH)
+    .attr('fill', 'green')
+;
+
+d3.select('#viz svg')
+.append("text")
+        .attr("x", '125')             
+        .attr("y", '15')
+        .style("font-size", "16px") 
+        .text("Green");
+
+
+
+//yellow
+
+
+d3.select('#viz svg')
+  .append('g')
+    .attr('id', 'greyColumn')
+  .append('rect')
+    .attr('x', '175')
+    .attr('y', '25')
+    .attr('width', '40')
+    .attr('height', greyH)
+    .attr('fill', 'grey')
+;
+
+
+d3.select('#viz svg')
+.append("text")
+        .attr("x", '178')             
+        .attr("y", '15')
+        .style("font-size", "16px") 
+        .text("Grey");
+
+
+//green
+d3.select('#viz svg')
+  .append('g')
+    .attr('id', 'orangeColumn')
+  .append('rect')
+    .attr('x', '225')
+    .attr('y', '25')
+    .attr('width', '40')
+    .attr('height',orangeH)
+    .attr('fill', 'orange')
+;
+
+
+d3.select('#viz svg')
+.append("text")
+        .attr("x", '224')             
+        .attr("y", '15')
+        .style("font-size", "16px") 
+        .text("Orange");
+
+//blue
+
+d3.select('#viz svg')
+  .append('g')
+    .attr('id', 'pinkColumn')
+  .append('rect')
+    .attr('x', '275')
+    .attr('y', '25')
+    .attr('width', '40')
+    .attr('height', pinkH)
+    .attr('fill', 'pink')
+;
+
+d3.select('#viz svg')
+.append("text")
+        .attr("x", '280')             
+        .attr("y", '15')
+        .style("font-size", "16px") 
+        .text("Pink");
+
+
+
+//purple
+d3.select('#viz svg')
+  .append('g')
+    .attr('id', 'purpleColumn')
+  .append('rect')
+    .attr('x', '325')
+    .attr('y', '25')
+    .attr('width', '40')
+    .attr('height', purpleH)
+    .attr('fill', 'purple')
+;
+
+
+d3.select('#viz svg')
+.append("text")
+        .attr("x", '328')             
+        .attr("y", '15')
+        .style("font-size", "16px") 
+        .text("Purple");
+
+
+//brown
+d3.select('#viz svg')
+  .append('g')
+    .attr('id', 'redColumn')
+  .append('rect')
+    .attr('x', '375')
+    .attr('y', '25')
+    .attr('width', '40')
+    .attr('height', redH)
+    .attr('fill', 'red')
+;
+
+d3.select('#viz svg')
+.append("text")
+        .attr("x", '380')             
+        .attr("y", '15')
+        .style("font-size", "16px") 
+        .text("Red");
+
+
+//white
+
+d3.select('#viz svg')
+  .append('g')
+    .attr('id', 'whiteColumn')
+  .append('rect')
+    .attr('x', '425')
+    .attr('y', '25')
+    .attr('width', '40')
+    .attr('height', whiteH)
+    .attr('fill', 'white')
+;
+
+d3.select('#viz svg')
+.append("text")
+        .attr("x", '425')             
+        .attr("y", '15')
+        .style("font-size", "16px") 
+        .text("White");
+
+
+
+//grey
+d3.select('#viz svg')
+  .append('g')
+    .attr('id', 'yellowColumn')
+  .append('rect')
+    .attr('x', '475')
+    .attr('y', '25')
+    .attr('width', '40')
+    .attr('height', yellowH)
+    .attr('fill', 'yellow')
+;
+
+d3.select('#viz svg')
+.append("text")
+        .attr("x", '475')             
+        .attr("y", '15')
+        .style("font-size", "16px") 
+        .text("Yellow");
+
+
+
+</script>
+
+<script type="text/javascript" src="script.js"></script>
+
+
+
+    <!-- End of embed ref code -->
+    <footer class="sticky-footer">
+      <div class="container">
+        <div class="text-center">
+          <small>Copyright &copy; Mahdia Hashimy, Alexander Quiñones, and Andrea Pinillos 2017</small>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fa fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Select "Logout" below if you are ready to end your current session.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="login.html">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="/jquery/jquery.min.js"></script>
+    <script src="/popper/popper.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="/jquery-easing/jquery.easing.min.js"></script>
+    <script src="/chart.js/Chart.min.js"></script>
+    <script src="/datatables/jquery.dataTables.js"></script>
+    <script src="/datatables/dataTables.bootstrap4.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="/js/sb-admin.min.js"></script>
+    <script src="/js/spotifyembed.js"></script>
+
+
+  </body>
+
+</html>

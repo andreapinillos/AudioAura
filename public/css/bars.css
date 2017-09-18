@@ -1,0 +1,202 @@
+#colors {
+	background-color: #181818;
+	width: 590px;
+	height:300px;
+}
+
+.bars {
+	width:40px;
+	height:300px;
+	/*opacity: .6;*/
+	margin-left: 10px;
+	display: inline-block;
+	cursor:pointer;
+
+}
+
+/*.bars:after {
+    opacity: 1;
+} */
+
+/*.bars:hover {
+	opacity: 1
+}*/
+
+.redBlock {
+	width: 40px;
+	height: 20px;
+	background-color: red;
+	margin-top: 5px;
+	opacity: .6;
+}
+
+/*.redBlocks:hover {
+	box-shadow: 0 0 20px red;
+}*/
+
+.pinkBlock {
+	width: 40px;
+	height: 20px;
+	background-color: pink;
+	margin-top: 5px;
+	opacity: .6;
+}
+
+/*.pinkBlocks:hover {
+	box-shadow: 0 0 20px pink;
+}*/
+
+
+.orangeBlock {
+	width: 40px;
+	height: 20px;
+	background-color: orange;
+	margin-top: 5px;
+	opacity: .6;
+}
+
+/*.orangeBlocks:hover {
+	box-shadow: 0 0 20px orange;
+}*/
+
+
+.yellowBlock {
+	width: 40px;
+	height: 20px;
+	background-color: yellow;
+	margin-top: 5px;
+	opacity: .6;
+}
+
+/*.yellowBlocks:hover {
+	box-shadow: 0 0 20px yellow;
+}*/
+
+
+.greenBlock {
+	width: 40px;
+	height: 20px;
+	background-color: #1ed760;
+	margin-top: 5px;
+	opacity: .6;
+}
+
+/*.greenBlocks:hover {
+	box-shadow: 0 0 20px #1ed760;
+}*/
+
+
+.blueBlock {
+	width: 40px;
+	height: 20px;
+	background-color: #3EABFD;
+	margin-top: 5px;
+	opacity: .6;
+}
+
+/*.blueBlocks:hover {
+	box-shadow: 0 0 20px #3EABFD;
+}*/
+
+.purpleBlock {
+	width: 40px;
+	height: 20px;
+	background-color: #A855FC;
+	margin-top: 5px;
+	opacity: .6;
+}
+
+/*.purpleBlocks:hover {
+	box-shadow: 0 0 20px #A855FC;
+}*/
+
+.brownBlock {
+	width: 40px;
+	height: 20px;
+	background-color: #906638;
+	margin-top: 5px;
+	opacity: .6;
+}
+
+/*.brownBlocks:hover {
+	box-shadow: 0 0 20px #906638;
+}*/
+
+.whiteBlock {
+	width: 40px;
+	height: 20px;
+	background-color: white;
+	margin-top: 5px;
+	opacity: .6;
+}
+
+/*.whiteBlocks:hover {
+	box-shadow: 0 0 20px white;
+}*/
+
+.greyBlock {
+	width: 40px;
+	height: 20px;
+	background-color: #808080;
+	margin-top: 5px;
+	opacity: .6;
+}
+
+/*.greyBlocks:hover {
+	box-shadow: 0 0 20px #cccccc;
+}*/
+
+.blackBlocks {
+	width: 40px;
+	height: 90px;
+	background-color: black;
+}
+
+.blackBlock {
+	width: 40px;
+	height: 20px;
+	background-color: black;
+}
+
+
+
+#text {
+	margin-top: 5px;
+	width: 590px;
+	height: 40px;
+	border-style: solid;
+	border-color: black;
+    border-width: 2px;
+    text-align: center;
+}
+
+.moodText {
+	font-size: 20px;
+	position: relative;
+	bottom: 17px;
+	
+
+}
+
+.topheader {
+	background-color: black;
+	color: white;
+	width: 590px;
+	padding-left: 5px;
+}
+
+#wordCouldTitle {
+	width: 900px;
+	height: 30px;
+	text-align: center;
+	margin: 30px;
+
+}
+
+#redRect {
+	margin-left: 29px;
+}
+
+.currentMood {
+
+}

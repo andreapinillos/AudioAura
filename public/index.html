@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Audio Aura - Mood Music</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Plugin CSS -->
+    <link href="/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+
+    <!-- Custom styles for this template  -->
+
+    <link href="/css/sb-admin.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/bars.css">
+    <link rel="stylesheet" type="text/css" href="/css/spotifyembed.css">
+
+  </head>
+
+  <body class="fixed-nav sticky-footer bg-dark" id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+      <a class="navbar-brand" href="#">A u d i o | A u r a</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+          <li class="nav-item active" data-toggle="tooltip" data-placement="right" title="Dashboard">
+            <a class="nav-link" href="#">
+              <i class="fa fa-fw fa-dashboard"></i>
+              <span class="nav-link-text">
+                Dashboard</span>
+            </a>
+          </li>
+            <ul class="sidenav-second-level collapse" id="collapseComponents">
+              <li>
+                <a href="static-nav.html">Static Navigation</a>
+              </li>
+              <li>
+                <a href="#">Custom Card Examples</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
+            <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
+              <i class="fa fa-fw fa-file"></i>
+              <span class="nav-link-text">
+                Pages</span>
+            </a>
+            <ul class="sidenav-second-level collapse" id="collapseExamplePages">
+              <li>
+                <a href="/">Home</a>
+              </li>
+              <li>
+                <a href="https://www.spotify.com/us/">Spotify</a>
+              </li>
+              <li>
+                <a href="/chart">Mood Chart</a>
+              </li>
+            </ul>
+          </li>
+        
+            <ul class="sidenav-second-level collapse" id="collapseMulti">
+              <li>
+                <a href="#">Second Level Item</a>
+              </li>
+              <li>
+                <a href="#">Second Level Item</a>
+              </li>
+              <li>
+                <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti2">Third Level</a>
+                <ul class="sidenav-third-level collapse" id="collapseMulti2">
+                  <li>
+                    <a href="#">Third Level Item</a>
+                  </li>
+                  <li>
+                    <a href="#">Third Level Item</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="navbar-nav sidenav-toggler">
+          <li class="nav-item">
+            <a class="nav-link text-center" id="sidenavToggler">
+              <i class="fa fa-fw fa-angle-left"></i>
+            </a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+     
+           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+            <a class="nav-link" href="https://accounts.spotify.com/en/authorize?response_type=code&client_id=aa57db780ac34c78aa98edc911ae4125&scope=user-read-private%20user-read-email&redirect_uri=https:%2F%2Fmahdia93.github.io%2FAudioAura%2Fviews%2Findex.html&state=z82x2WmOu32n5LQe">
+              <i class="fa fa-spotify"></i>
+              <span class="nav-link-text">
+                Spotify Login</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="content-wrapper">
+
+      <div class="container-fluid">
+
+        <!-- Breadcrumbs -->
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item active">Music for your ~~moo0oOod~~</li>
+        </ol>
+
+        <!-- Icon Cards -->
+        <div class="row">
+          <div class="col-lg-7">
+           
+        <div class="topheader"><h2>What color mood are you? <span id="currentMood"></span></h2></div>
+
+<div id="colors" class="colors">
+    <!-- red -->
+    <div id="redRect" class="bars">
+        <div style="height: 122px; width: 40px;"></div>
+          <div id="redRectInner" class="redBlocks">
+            <div class="redBlock"></div>
+            <div class="redBlock"></div>
+            <div class="redBlock"></div>
+            <div class="redBlock"></div>
+            <div class="redBlock"></div>
+            <div class="redBlock"></div>
+            <div class="redBlock"></div>
+          </div>
+    </div>
+
+    <!-- pink -->
+    <div id="pinkRect" class="bars">
+        <div style="height: 147px; width: 40px;"></div>
+          <div class="pinkBlocks">
+            <div class="pinkBlock"></div>
+            <div class="pinkBlock"></div>
+            <div class="pinkBlock"></div>
+            <div class="pinkBlock"></div>
+            <div class="pinkBlock"></div>
+            <div class="pinkBlock"></div>
+          </div>
+    </div>
+
+    <!-- orange -->
+        <div id="orangeRect" class="bars">
+        <div style="height: 97px; width: 40px;"></div>
+          <div class="orangeBlocks">
+            <div class="orangeBlock"></div>
+            <div class="orangeBlock"></div>
+            <div class="orangeBlock"></div>
+            <div class="orangeBlock"></div>
+            <div class="orangeBlock"></div>
+            <div class="orangeBlock"></div>
+            <div class="orangeBlock"></div>
+            <div class="orangeBlock"></div>
+          </div>
+    </div>
+
+    <!-- yellow -->
+        <div id="yellowRect" class="bars">
+        <div style="height: 47px; width: 40px;"></div>
+          <div class="yellowBlocks">
+            <div class="yellowBlock"></div>
+            <div class="yellowBlock"></div>
+            <div class="yellowBlock"></div>
+            <div class="yellowBlock"></div>
+            <div class="yellowBlock"></div>
+            <div class="yellowBlock"></div>
+            <div class="yellowBlock"></div>
+            <div class="yellowBlock"></div>
+            <div class="yellowBlock"></div>
+            <div class="yellowBlock"></div>
+          </div>
+    </div>
+
+    <!-- green -->
+        <div id="greenRect" class="bars">
+        <div style="height: 122px; width: 40px;"></div>
+          <div class="greenBlocks">
+            <div class="greenBlock"></div>
+            <div class="greenBlock"></div>
+            <div class="greenBlock"></div>
+            <div class="greenBlock"></div>
+            <div class="greenBlock"></div>
+            <div class="greenBlock"></div>
+            <div class="greenBlock"></div>
+          </div>
+    </div>
+
+    <!-- blue -->
+        <div id="blueRect" class="bars">
+        <div style="height: 147px; width: 40px;"></div>
+          <div class="blueBlocks">
+            <div class="blueBlock"></div>
+            <div class="blueBlock"></div>
+            <div class="blueBlock"></div>
+            <div class="blueBlock"></div>
+            <div class="blueBlock"></div>
+            <div class="blueBlock"></div>
+          </div>
+    </div>
+
+    <!-- purple -->
+        <div id="purpleRect" class="bars">
+        <div style="height: 97px; width: 40px;"></div>
+          <div class="purpleBlocks">
+            <div class="purpleBlock"></div>
+            <div class="purpleBlock"></div>
+            <div class="purpleBlock"></div>
+            <div class="purpleBlock"></div>
+            <div class="purpleBlock"></div>
+            <div class="purpleBlock"></div>
+            <div class="purpleBlock"></div>
+            <div class="purpleBlock"></div>
+          </div>
+    </div>
+
+    <!-- brown -->
+        <div id="brownRect" class="bars">
+        <div style="height: 122px; width: 40px;"></div>
+          <div class="brownBlocks">
+            <div class="brownBlock"></div>
+            <div class="brownBlock"></div>
+            <div class="brownBlock"></div>
+            <div class="brownBlock"></div>
+            <div class="brownBlock"></div>
+            <div class="brownBlock"></div>
+            <div class="brownBlock"></div>
+          </div>
+    </div>
+
+    <!-- white -->
+        <div id="whiteRect" class="bars">
+        <div style="height: 147px; width: 40px;"></div>
+          <div class="whiteBlocks">
+            <div class="whiteBlock"></div>
+            <div class="whiteBlock"></div>
+            <div class="whiteBlock"></div>
+            <div class="whiteBlock"></div>
+            <div class="whiteBlock"></div>
+            <div class="whiteBlock"></div>
+          </div>
+    </div>
+
+    <!-- grey -->
+        <div id="greyRect" class="bars">
+        <div style="height: 97px; width: 40px;"></div>
+          <div class="greyBlocks">
+            <div class="greyBlock"></div>
+            <div class="greyBlock"></div>
+            <div class="greyBlock"></div>
+            <div class="greyBlock"></div>
+            <div class="greyBlock"></div>
+            <div class="greyBlock"></div>
+            <div class="greyBlock"></div>
+            <div class="greyBlock"></div>
+        </div>
+    </div>
+
+</div>
+<div class="playlistbutton">
+    <p class="playlistbuttontext">Pick a mood and load a playlist</p>
+    </div>
+
+          </div>
+          <div class="col-lg-5 spotify" id="the-player"></div>
+
+        </div>
+ 
+
+    <!-- embed ref code -->
+<textarea class="embed-code-red" style="visibility: hidden"><iframe src="https://open.spotify.com/embed/user/spotify/playlist/37i9dQZF1DWTlVPwioEa7F" width="100%" height="100%" frameborder="0" allowtransparency="true"></iframe></textarea>
+<textarea class="embed-code-pink" style="visibility: hidden"><iframe src="https://open.spotify.com/embed/user/spotify/playlist/37i9dQZF1DWYBO1MoTDhZI" width="100%" height="100%" frameborder="0" allowtransparency="true"></iframe></textarea>
+<textarea class="embed-code-orange" style="visibility: hidden"><iframe src="https://open.spotify.com/embed/user/spotify/playlist/37i9dQZF1DWSWboXWl2xwB" width="100%" height="100%" frameborder="0" allowtransparency="true"></iframe></textarea>
+<textarea class="embed-code-yellow" style="visibility: hidden"><iframe src="https://open.spotify.com/embed/user/spotify/playlist/37i9dQZF1DXdPec7aLTmlC" width="100%" height="100%" frameborder="0" allowtransparency="true"></iframe></textarea>
+<textarea class="embed-code-green" style="visibility: hidden"><iframe src="https://open.spotify.com/embed/user/spotify/playlist/37i9dQZF1DWT7XSlwvR1ar" width="100%" height="100%" frameborder="0" allowtransparency="true"></iframe></textarea>
+<textarea class="embed-code-blue" style="visibility: hidden"><iframe src="https://open.spotify.com/embed/user/spotify/playlist/37i9dQZF1DX76Wlfdnj7AP" width="100%" height="100%" frameborder="0" allowtransparency="true"></iframe></textarea>
+<textarea class="embed-code-purple" style="visibility: hidden"><iframe src="https://open.spotify.com/embed/user/myplay.com/playlist/6KOPB3LWEklTcWeAzL9HVu" width="100%" height="100%" frameborder="0" allowtransparency="true"></iframe></textarea>
+<textarea class="embed-code-brown" style="visibility: hidden"><iframe src="https://open.spotify.com/embed/user/spotify/playlist/37i9dQZF1DWTSPqolnbHgK" width="100%" height="100%" frameborder="0" allowtransparency="true"></iframe></textarea>
+<textarea class="embed-code-white" style="visibility: hidden"><iframe src="https://open.spotify.com/embed/user/spotify/playlist/37i9dQZF1DX4sWSpwq3LiO" width="100%" height="100%" frameborder="0" allowtransparency="true"></iframe></textarea>
+<textarea class="embed-code-grey" style="visibility: hidden"><iframe src="https://open.spotify.com/embed/user/spotify/playlist/37i9dQZF1DWSqBruwoIXkA" width="100%" height="100%" frameborder="0" allowtransparency="true"></iframe></textarea>
+
+    <!-- End of embed ref code -->
+    <footer class="sticky-footer">
+      <div class="container">
+        <div class="text-center">
+          <small>Copyright &copy; Mahdia Hashimy, Alexander Quiñones, and Andrea Pinillos 2017</small>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fa fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Select "Logout" below if you are ready to end your current session.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="login.html">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="/jquery/jquery.min.js"></script>
+    <script src="/popper/popper.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="/jquery-easing/jquery.easing.min.js"></script>
+    <script src="/chart.js/Chart.min.js"></script>
+    <script src="/datatables/jquery.dataTables.js"></script>
+    <script src="/datatables/dataTables.bootstrap4.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="/js/sb-admin.min.js"></script>
+    <script src="/js/spotifyembed.js"></script>
+
+
+  </body>
+
+</html>
